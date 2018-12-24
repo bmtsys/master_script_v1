@@ -1,3 +1,4 @@
+version: '3'
 services:
   wazuh:
     image: wazuh/wazuh:3.7.0_6.5.0
@@ -52,7 +53,7 @@ services:
       memlock:
         soft: -1
         hard: -1
-    mem_limit: 2g
+    # mem_limit: 2g
 #    volumes:
 #      - my-path:/usr/share/elasticsearch/data:Z
     networks:
