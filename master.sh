@@ -16,10 +16,17 @@ echo "My working dir: $_mydir"
 # Share Compose configurations between files and projects
 # docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
 
-
+# Postgres, Kong, Konga.
 docker-compose -f $_mydir/docker-compose.yml up -d
+
+#prometheus, nodeexporter, Grafana.
 docker-compose -f $_mydir/docker-compose-prom.yml up -d
+
+#ELK Stack
 docker-compose -f $_mydir/docker-compose-wazuh.yml up -d
+
+#operational Dashboard.
+docker-compose -f $_mydir/docker-compose-operation.yml -d
 
 
 # Once the installations are completed, Start the automation script here.

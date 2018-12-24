@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+  central:
+    # tag the image, so we can later push it
+    image: bmtsys/central_hub
+
+    # should Nginx crash, always restart it
+    restart: always
+
+    # treat port 80 of the host as port 80 of the container
+    ports:
+      - 80:80
