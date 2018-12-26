@@ -25,11 +25,14 @@ docker-compose -f $_mydir/docker-compose-prom.yml up -d
 #ELK Stack
 docker-compose -f $_mydir/docker-compose-wazuh.yml up -d
 
+#portainer
+docker-compose -f $_mydir/docker-compose-portainer.yml -d
+
 #operational Dashboard.
 docker-compose -f $_mydir/docker-compose-operation.yml -d
 
 
-#portainer, Nagios 11
+
 
 
 # Once the installations are completed, Start the automation script here.
