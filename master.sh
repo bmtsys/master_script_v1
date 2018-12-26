@@ -29,4 +29,7 @@ docker-compose -f $_mydir/docker-compose-wazuh.yml up -d
 docker-compose -f $_mydir/docker-compose-operation.yml -d
 
 
+#portainer, Nagios 11
+
+
 # Once the installations are completed, Start the automation script here.
