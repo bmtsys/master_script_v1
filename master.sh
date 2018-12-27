@@ -41,6 +41,9 @@ docker-compose -f $_mydir/docker-compose.yml up -d
 #prometheus, nodeexporter, Grafana.
 docker-compose -f $_mydir/docker-compose-prom.yml up -d
 
+#You need to increase max_map_count on your Docker host: config for elastic search
+sudo sysctl -w vm.max_map_count=262144
+
 #Wazuh ELK Stack
 docker-compose -f $_mydir/docker-compose-wazuh.yml up -d
 
