@@ -41,7 +41,7 @@ docker-compose -f $_mydir/docker-compose.yml up -d
 #prometheus, nodeexporter, Grafana.
 docker-compose -f $_mydir/docker-compose-prom.yml up -d
 
-#ELK Stack
+#Wazuh ELK Stack
 docker-compose -f $_mydir/docker-compose-wazuh.yml up -d
 
 #portainer
