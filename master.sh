@@ -48,10 +48,10 @@ sudo sysctl -w vm.max_map_count=262144
 docker-compose -f $_mydir/docker-compose-wazuh.yml up -d
 
 #portainer
-docker-compose -f $_mydir/docker-compose-portainer.yml -d
+docker-compose -f $_mydir/docker-compose-portainer.yml up -d
 
 #operational Dashboard.
-docker-compose -f $_mydir/docker-compose-operation.yml -d
+docker-compose -f $_mydir/docker-compose-operation.yml up -d
 
 
 
