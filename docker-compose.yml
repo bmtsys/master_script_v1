@@ -28,8 +28,8 @@ services:
   # Kong database migration
   #######################################
   kong-migration:
-    image: kong:latest
-    command: "kong migrations up && kong migrations bootstrap"
+    image: kong:0.14.1
+    command: "kong migrations up"
     networks:
       - kong-net
     restart: on-failure
@@ -44,7 +44,7 @@ services:
   # Kong: The API Gateway
   #######################################
   kong:
-    image: kong:latest
+    image: kong:0.14.1
     restart: always
     networks:
       - kong-net
