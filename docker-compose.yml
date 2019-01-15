@@ -9,7 +9,7 @@ services:
   # Postgres: The database used by Kong
   #######################################
   kong-database:
-    image: postgres:9.6
+    image: postgres:latest
     restart: always
     networks:
       - kong-net
