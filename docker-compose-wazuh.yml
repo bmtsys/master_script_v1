@@ -80,7 +80,7 @@ services:
     environment:
       - NGINX_PORT=443
     ports:
-      - "81:81"
+      - "80:80"
       - "443:443"
 #    volumes:
 #      - my-path:/etc/nginx/conf.d:Z

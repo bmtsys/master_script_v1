@@ -1,6 +1,7 @@
 
 #!/bin/bash
 
+
 # Install Pre-requisites ##
 apt update
 apt install apt-transport-https ca-certificates curl software-properties-common -y
@@ -48,12 +49,10 @@ sudo sysctl -w vm.max_map_count=262144
 docker-compose -f $_mydir/docker-compose-wazuh.yml up -d
 
 #portainer
-docker-compose -f $_mydir/docker-compose-portainer.yml up -d
+docker-compose -f $_mydir/docker-stack.yml up -d
 
 #operational Dashboard.
 docker-compose -f $_mydir/docker-compose-operation.yml up -d
-
-
 
 
 

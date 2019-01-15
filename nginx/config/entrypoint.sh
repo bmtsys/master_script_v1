@@ -4,13 +4,13 @@
 set -e
 
 # Generating certificates.
-if [ ! -d /etc/nginx/conf.d/ssl ]; then
-  echo "Generating SSL certificates"
-  mkdir -p /etc/nginx/conf.d/ssl/certs /etc/nginx/conf.d/ssl/private
-  openssl req -x509 -batch -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/conf.d/ssl/private/kibana-access.key -out /etc/nginx/conf.d/ssl/certs/kibana-access.pem >/dev/null
-else
-  echo "SSL certificates already present"
-fi
+# if [ ! -d /etc/nginx/conf.d/ssl ]; then
+#   echo "Generating SSL certificates"
+#   mkdir -p /etc/nginx/conf.d/ssl/certs /etc/nginx/conf.d/ssl/private
+#   openssl req -x509 -batch -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/conf.d/ssl/private/kibana-access.key -out /etc/nginx/conf.d/ssl/certs/kibana-access.pem >/dev/null
+# else
+#   echo "SSL certificates already present"
+# fi
 
 # Configuring default credentiales.
 if [ ! -f /etc/nginx/conf.d/kibana.htpasswd ]; then
@@ -22,7 +22,7 @@ fi
 
 
 if [ "x${NGINX_PORT}" = "x" ]; then
-  NGINX_PORT=443
+  NGINX_PORT=80
 fi
 
 if [ "x${KIBANA_HOST}" = "x" ]; then
