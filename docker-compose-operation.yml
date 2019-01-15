@@ -10,4 +10,4 @@ services:
 
     # treat port 80 of the host as port 80 of the container
     ports:
-      - 4000:4000
+      - 4000:80

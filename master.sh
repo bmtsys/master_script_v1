@@ -1,6 +1,7 @@
 
 #!/bin/bash
 
+
 # Install Pre-requisites ##
 apt update
 apt install apt-transport-https ca-certificates curl software-properties-common -y
@@ -52,8 +53,6 @@ docker-compose -f $_mydir/docker-compose-portainer.yml up -d
 
 #operational Dashboard.
 docker-compose -f $_mydir/docker-compose-operation.yml up -d
-
-
 
 
 
