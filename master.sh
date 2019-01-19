@@ -37,7 +37,7 @@ echo "My working dir: $_mydir"
 # docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
 
 # Postgres, Kong, Konga.
-docker-compose -f $_mydir/docker-compose.yml up --scale kong=10 -d
+docker-compose -f $_mydir/docker-compose.yml up -d
 
 #prometheus, nodeexporter, Grafana.
 docker-compose -f $_mydir/docker-compose-prom.yml up -d
