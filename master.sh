@@ -37,23 +37,37 @@ echo "My working dir: $_mydir"
 # docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
 
 # Postgres, Kong, Konga.
-docker-compose -f $_mydir/docker-compose.yml up -d
+# docker-compose -f $_mydir/docker-compose.yml up -d
 
 #prometheus, nodeexporter, Grafana.
-docker-compose -f $_mydir/docker-compose-prom.yml up -d
+# docker-compose -f $_mydir/docker-compose-prom.yml up -d
 
 #You need to increase max_map_count on your Docker host: config for elastic search
 sudo sysctl -w vm.max_map_count=262144
 
 #Wazuh ELK Stack
-docker-compose -f $_mydir/docker-compose-wazuh.yml up -d
+# docker-compose -f $_mydir/docker-compose-wazuh.yml up -d
 
-#portainer
-docker-compose -f $_mydir/docker-compose-portainer.yml up -d
+# #portainer
+# docker-compose -f $_mydir/docker-compose-portainer.yml up -d
 
-#operational Dashboard.
-docker-compose -f $_mydir/docker-compose-operation.yml up -d
+# #operational Dashboard.
+# docker-compose -f $_mydir/docker-compose-operation.yml up -d
 
+#scale kong with 10 replicas for now
+echo -ne '#####                                          (10%)\r'
+docker swarm init
+echo -ne '#########                                      (30%)\r'
+#################################################################
+#################################################################
+docker stack deploy -c stack-compose.yml tetrawing_v1
+#################################################################
+echo -ne '##################################             (95%)\r'
+echo "Initializing Tetrawing version 1.0..."
+echo "Please Wait..."
+sleep 10
+echo -ne '##############################################(100%)\r'
+echo -ne '\n'
+echo "Temp solution: Please find the portainer port from below stack...!! "
+sudo docker stack services tetrawing_v1
 
-
-# Once the installations are completed, Start the automation script here.
