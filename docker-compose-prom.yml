@@ -15,7 +15,7 @@ services:
      - "9100:9100"
 #    network_mode: host
   grafana:
-    image: grafana/grafana
+    image: bmtsys/insights:latest
     ports:
      - "3000:3000"
     depends_on:
