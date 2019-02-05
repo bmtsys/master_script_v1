@@ -46,26 +46,24 @@ sleep 3
 #scale kong with 10 replicas 
 docker-compose -f $_mydir/docker-compose.yml up -d
 
-echo -ne '################                                        (30%)\r'
 #prometheus, nodeexporter, Grafana.
 docker-compose -f $_mydir/docker-compose-prom.yml up -d
 
-echo -ne '###################################                     (60%)\r'
 #You need to increase max_map_count on your Docker host: config for elastic search
 sudo sysctl -w vm.max_map_count=262144
 
 #Wazuh ELK Stack
 docker-compose -f $_mydir/docker-compose-wazuh.yml up -d
 
-echo -ne '###############################################         (85 %)\r'
 # #portainer
 docker-compose -f $_mydir/docker-compose-portainer.yml up -d
 
-echo -ne '####################################################### (95%)\r'
 # #operational Dashboard.
 docker-compose -f $_mydir/docker-compose-operation.yml up -d
 
-echo -ne '########################################################(100%)\r'
+#nagios 
+docker-compose -f $_mydir/docker-compose-nagios.yml up -d
+
 
 echo -ne '\n'
 echo "Configuring and Initializing Tetrawing version 1.0..."
